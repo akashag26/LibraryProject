@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)    # Not the final implementation!
+    @user = User.new(user_params)    # Not the final implementation
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the App!"
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :kind)
   end
 
 end
