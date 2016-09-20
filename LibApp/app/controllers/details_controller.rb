@@ -11,22 +11,30 @@ class DetailsController < ApplicationController
     @detail = Detail.find_by(email: current_user.email)
   end
 
+  # POST /details/1
+  # POST /users/1.json
+  def myshow
+    @detail = Detail.find_by(email: params[:adminemail])
+  end
+
   def update
     puts current_user.email
     Detail.where(:email => current_user.email).update_all(:city => params[:detail][:city], :state =>params[:detail][:state] , :zipcode =>params[:detail][:zipcode] , :country =>params[:detail][:country], :phoneno =>params[:detail][:phoneno] , :address =>params[:detail][:address] ,:lastname =>params[:detail][:lastname])
     flash[:success] = "Profile Details Successfully Updated!"
     redirect_to userdetails_path(@current_user)
-
-
-    #if @detail.save
-      #log_in @detail
-
-      #redirect_to  :home_path
-    #else
-      #render 'new'
-    #end
   end
 
+
+  def destroy
+    @detail = Detail.find(params[:id])
+    adminemail = @detail.email
+    @detail.destroy
+    User.find_by(email: adminemail).delete
+    respond_to do |format|
+      format.html { redirect_to showadmins_path, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 
 end

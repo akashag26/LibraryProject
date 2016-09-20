@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
+
   get 'details/create'
 
 
 
   get 'sessions/new'
-
+  get '/admindetails' , to: 'details#myshow'
+  get '/showadmins' , to:  'showadmins#index'
+  post '/createadmin/myaction' , to: 'createadmin#myaction'
+  get '/createadmin' ,to: 'createadmin#show'
   get '/home'     ,   to: 'homes#show'
+  get '/manageadmin'     ,   to: 'manageadmin#show'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   get  'userdetails' , to: 'details#show'
