@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'showusers/index'
+
+  get 'showusers/show'
+
+  get 'manageuser/show'
+
   get 'details/create'
 
 
@@ -8,9 +14,11 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get '/admindetails' , to: 'details#myshow'
   get '/showadmins' , to:  'showadmins#index'
+  get '/showusers' , to:  'showusers#index'
   post '/createadmin/myaction' , to: 'createadmin#myaction'
   get '/createadmin' ,to: 'createadmin#show'
   get '/home'     ,   to: 'homes#show'
+  get '/manageuser'     ,   to: 'manageuser#show'
   get '/manageadmin'     ,   to: 'manageadmin#show'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'

@@ -31,7 +31,7 @@ class DetailsController < ApplicationController
     @detail.destroy
     User.find_by(email: adminemail).delete
     respond_to do |format|
-      format.html { redirect_to showadmins_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to showadmins_path, notice: 'Admin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
