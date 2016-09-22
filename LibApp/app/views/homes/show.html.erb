@@ -1,7 +1,7 @@
 <p>Welcome, <%= current_user.name %>!</p>
 <p><%= link_to "Edit Profile Details",   userdetails_path(@current_user) %></p>
 <p><%= link_to "Manage Admins",   manageadmin_path(@current_user) %></p>
-<p><%= link_to "Manage Rooms",   userdetails_path(@current_user) %></p>
+<p><%= link_to "Manage Rooms",   manageroom_path(@current_user) %></p>
 <p><%= link_to "Manage Library Member",   manageuser_path(@current_user) %></p>
 <p><%= link_to "Room Reservation",   userdetails_path(@current_user) %></p>
 <p><%= link_to "Delete Rooms",   userdetails_path(@current_user) %></p>

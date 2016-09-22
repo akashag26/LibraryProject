@@ -18,7 +18,7 @@ class CreateadminController < ApplicationController
       redirect_to manageadmin_path(@current_user)
 
     else
-    render 'new'
+    render html: "done"
     end
 
   end
