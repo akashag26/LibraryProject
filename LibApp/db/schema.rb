@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918231102) do
+ActiveRecord::Schema.define(version: 20160920050910) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "booking_ID"
+    t.string   "user"
+    t.string   "email"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "room_no"
+    t.time     "booking_time"
+    t.string   "building"
+    t.string   "size"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
@@ -25,20 +39,7 @@ ActiveRecord::Schema.define(version: 20160918231102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-	create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-		t.string   "booking_ID"
-		t.string   "user"
-		t.string   "email"
-		t.datetime "start_time"
-		t.datetime "end_time"
-		t.string   "room_no"
-		t.time     "booking_time"
-		t.string   "building"
-		t.string   "size"
-		t.datetime "created_at",   null: false
-		t.datetime "updated_at",   null: false
-  end
-  
+
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "room_no"
     t.string   "building"
