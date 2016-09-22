@@ -21,7 +21,7 @@
         <td><%= b.end_time %></td>
         <td><%= b.building %></td>
         <td><%= b.size %></td>
-        <td><%= link_to 'Delete', deletereservation_path(b) %></td>
+        <td><%= link_to 'Cancel', b, method: :delete %></td>
       </tr>
   <% end %>
 </table>
