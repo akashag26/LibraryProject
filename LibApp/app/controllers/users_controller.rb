@@ -13,6 +13,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # DELETE /users/1
+  # DELETE /users/1.json
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to showadmins_path}
+      format.json { head :no_content }
+    end
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -25,11 +35,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)    # Not the final implementation!
+    @user = User.new(user_params)    # Not the final implementation
     if @user.save
+      temp = Detail.new(firstname: @user.name , email: @user.email)
+      temp.save!
+
       log_in @user
       flash[:success] = "Welcome to the App!"
-      redirect_to @user
+      redirect_to home_path(@current_user)
+
     else
       render 'new'
     end
@@ -49,15 +63,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,7 +76,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :kind)
   end
 
 end
