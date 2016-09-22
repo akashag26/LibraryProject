@@ -3,12 +3,7 @@ class HomesController < ApplicationController
     @user = @current_user
   end
 
-  def managerooms
-  @user = @current_user
-  end
-
-  def managelibmember
+  def manageroom
     @user = @current_user
   end
-
 end
