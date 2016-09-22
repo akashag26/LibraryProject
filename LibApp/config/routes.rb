@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'rooms/add'
+  get 'rooms/add' , to: 'rooms#add'
   get 'rooms/delete'
   get 'rooms/show'
   get 'rooms/update'

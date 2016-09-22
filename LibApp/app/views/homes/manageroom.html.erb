@@ -1,5 +1,5 @@
 <p>Welcome, <%= current_user.name %>!</p>
-<p><%= link_to "Add a room",   userdetails_path(@current_user) %></p>
+<p><%= link_to "Add a room",   rooms_add_path %></p>
 <p><%= link_to "View Rooms",   manageadmin_path(@current_user) %></p>
 <p><%= link_to "View/Edit room detail",   userdetails_path(@current_user) %></p>
 <p><%= link_to "View Room booking history",   manageuser_path(@current_user) %></p>
