@@ -1,0 +1,8 @@
+<p>Welcome, <%= current_user.name %>!</p>
+<p><%= link_to "Add a room", rooms_add_path %></p>
+<p><%= link_to "View/Edit Rooms", rooms_show_path %></p>
+<p><%= link_to "View Room Schedule", rooms_show_schedule_path %></p>
+<p><%= link_to "View Room Details", rooms_detailsofroom_path %></p>
+<p><%= link_to "View Room booking history", manageuser_path(@current_user) %></p>
+
+
