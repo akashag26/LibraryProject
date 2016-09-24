@@ -19,12 +19,20 @@
         <td><%= link_to 'Show', { :controller => "details", :action =>
             "myshow", :adminemail => detail.email}  %></td>
 
-        <%= check = (detail.email != current_user.email) %>
-        <td><%= link_to_if check, 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if detail.email == 'sysadmin@gmail.com' %>
+            <td>Destroy</td>
+
+      <% elsif detail.email == current_user.email %>
+            <td>Destroy</td>
+      <% else %>
+            <td><%= link_to 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      <% end %>
+
 
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<br>
