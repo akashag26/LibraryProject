@@ -18,7 +18,8 @@ class CreateadminController < ApplicationController
       redirect_to manageadmin_path(@current_user)
 
     else
-    render html: "done"
+      flash[:error] = @user.errors
+      redirect_to manageadmin_path(@current_user)
     end
 
   end

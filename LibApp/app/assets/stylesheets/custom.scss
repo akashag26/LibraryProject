@@ -94,15 +94,15 @@ input {
 }
 
 #error_explanation {
-  color: #eaeaea;
+  color: white;
   ul {
-    color: #eaeaea;
+    color: black;
     margin: 0 0 30px 0;
   }
 }
 
 .field_with_errors {
-
+width: 100%;
   .form-control {
     color: #eaeaea;
   }

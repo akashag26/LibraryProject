@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@room) do |f| %>
-        <%= render 'rooms/error_messages' %>
+        <%= render 'error_messages' %>
 
         <%= f.label "Room no" %>
         <%= f.text_field :room_no, class: 'form-control' %>
@@ -15,9 +15,9 @@
         <%= f.label :building %>
         <%= f.select :building,  options_for_select([["D.H Hill","hill"],["James B. Hunt","hunt"]],@room.building) %>
 
-        <%= f.hidden_field :status, :value => 'Available' %>
+        <%= f.hidden_field :status, :value => @room.status %>
         <br>
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

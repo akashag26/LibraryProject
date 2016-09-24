@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'rooms/show'
   get 'rooms/update'
   get 'rooms/show_history'
-  get 'sessions/new'
+  get 'rooms/reserveroom', to: 'rooms#reserveroom'
   get 'rooms/detailsofroom', to: 'rooms#detailsofroom'
   get 'rooms/viewdetails', to: 'rooms#viewdetails'
   get 'rooms/detailsofroom'
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get 'showusers/index'
   get 'showusers/show'
   #check this one need to change position
-  get 'roomreservation', to: 'bookings#roomreservation'
   get 'manageuser/show'
   get 'details/create'
   get 'sessions/new'

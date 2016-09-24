@@ -27,36 +27,37 @@ ActiveRecord::Schema.define(version: 20160920050910) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.string   "address"
-    t.bigint   "phoneno"
-    t.string   "state"
-    t.string   "city"
-    t.integer  "zipcode"
-    t.string   "country"
+  create_table "details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "address"
+    t.bigint "phoneno"
+    t.string "state"
+    t.string "city"
+    t.integer "zipcode"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "type"
+  end
+
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "room_no"
+    t.string "building"
+    t.string "size"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "room_no"
-    t.string   "building"
-    t.string   "size"
-    t.string   "status"
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-    t.string   "kind"
+    t.string "password_digest"
+    t.string "kind"
   end
 
 end

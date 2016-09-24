@@ -6,4 +6,5 @@ class HomesController < ApplicationController
   def manageroom
     @user = @current_user
   end
+
 end
