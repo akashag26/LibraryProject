@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'rooms/detailsofroom', to: 'rooms#detailsofroom'
   get 'rooms/viewdetails', to: 'rooms#viewdetails'
-
+  get 'rooms/detailsofroom'
   get 'homes/roomreservation'
 
   get 'rooms/show_schedule', to: 'rooms#show_schedule'
