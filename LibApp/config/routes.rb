@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
+  # Routes for manage rooms
   get 'rooms/add', to: 'rooms#add'
-  get 'rooms/delete'
+  #get 'rooms/delete', to: 'rooms#delete'
   get 'rooms/show'
   get 'rooms/update'
   get 'rooms/show_history'
@@ -10,10 +12,13 @@ Rails.application.routes.draw do
 
   get 'homes/roomreservation'
 
+  get 'rooms/show_schedule', to: 'rooms#show_schedule'
+  get 'rooms/edit', to: 'rooms#edit'
+
+  get 'sessions/new'
   get 'showusers/index'
   get 'showusers/show'
-
-#check this one need to change position
+  #check this one need to change position
   get 'roomreservation', to: 'bookings#roomreservation'
   get 'manageuser/show'
   get 'details/create'
