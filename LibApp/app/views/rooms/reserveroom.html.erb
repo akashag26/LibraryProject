@@ -39,7 +39,7 @@
             <td><%= room.building %></td>
             <td><%= room.status %></td>
             <% if room.status == "Available" %>
-                <td><%= link_to "Details", {:action => "edit", :id => room.id} %></td>
+                <td><%= link_to "Details", {:action => "detailsofroom", :room_id => room.id} %></td>
             <% else %>
                 <td><%= link_to "Release", {:action => "edit", :id => room.id} %></td>
             <% end %>

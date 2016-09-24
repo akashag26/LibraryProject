@@ -4,6 +4,7 @@
     border: 1px solid black;
   }
 </style>
+<%if @bookings !=nil%>
 <table style="width:100%">
     <caption>Reservation Details</caption>
   <tr>
@@ -25,3 +26,6 @@
       </tr>
   <% end %>
 </table>
+    <%else%>
+    <p>No Reservation Made.</p>
+<% end %>

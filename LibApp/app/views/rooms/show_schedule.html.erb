@@ -18,8 +18,41 @@
   <% @rooms.each do |room| %>
       <tr>
         <th scope="row"><%= room.room_no %></th>
-        <%6.times do || %>
-          <td>Available</td>
+            <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "10:00" )%>
+            <%if @booking != nil%>
+                <td><%="Booked"%></td>
+            <%else%>
+                <td><%= link_to "Available" %></td>
+            <%end%>
+        <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "12:00" )%>
+        <%if @booking != nil%>
+            <td><%="Booked"%></td>
+        <%else%>
+            <td><%= link_to "Available" %></td>
+        <%end%>
+        <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "2:00" )%>
+        <%if @booking != nil%>
+            <td><%="Booked"%></td>
+        <%else%>
+            <td><%= link_to "Available" %></td>
+        <%end%>
+        <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "4:00" )%>
+        <%if @booking != nil%>
+            <td><%="Booked"%></td>
+        <%else%>
+            <td><%= link_to "Available" %></td>
+        <%end%>
+        <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "6:00" )%>
+        <%if @booking != nil%>
+            <td><%="Booked"%></td>
+        <%else%>
+            <td><%= link_to "Available" %></td>
+        <%end%>
+        <%@booking=Booking.find_by(room_no: room.room_no ,booking_date: (Date.current()), start_time: "8:00" )%>
+        <%if @booking != nil%>
+            <td><%="Booked"%></td>
+        <%else%>
+            <td><%= link_to "Available" %></td>
         <%end%>
       </tr>
   <% end %>

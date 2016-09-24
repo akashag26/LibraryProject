@@ -79,7 +79,7 @@ class BookingsController < ApplicationController
   end
 
   def roomreservation
-    @bookings =Booking.all
+    @bookings = Booking.all.where(email: current_user.email)
   end
 
   def destroybooking

@@ -10,7 +10,7 @@
 <p><%= link_to "Reserve a room", rooms_reserveroom_path %></p>
 
 <% if current_user.kind == 'user' || current_user.kind == 'super-user' %>
-    <p><%= link_to "Release Room", manageadmin_path(@current_user) %></p>
+    <p><%= link_to "Release Room", roomreservation_path(@current_user) %></p>
     <p><%= link_to "View Booking History", manageroom_path(@current_user) %></p>
 <% end %>
 
