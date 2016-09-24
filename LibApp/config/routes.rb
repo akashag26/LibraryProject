@@ -1,22 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'rooms/add' , to: 'rooms#add'
-  get 'rooms/delete'
+  # Routes for manage rooms
+  get 'rooms/add', to: 'rooms#add'
+  #get 'rooms/delete', to: 'rooms#delete'
   get 'rooms/show'
   get 'rooms/update'
   get 'rooms/show_history'
+  get 'rooms/show_schedule', to: 'rooms#show_schedule'
+  get 'rooms/edit', to: 'rooms#edit'
+
   get 'sessions/new'
-
-
   get 'showusers/index'
-
   get 'showusers/show'
-
   get 'manageuser/show'
-
   get 'details/create'
-
-
   get 'sessions/new'
   get '/admindetails', to: 'details#myshow'
   get '/showadmins', to: 'showadmins#index'

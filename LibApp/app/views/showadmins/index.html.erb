@@ -18,7 +18,8 @@
         <td><%= detail.email %></td>
         <td><%= link_to 'Show', { :controller => "details", :action =>
             "myshow", :adminemail => detail.email}  %></td>
-        <td><%= link_to 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= check = (detail.email != current_user.email) %>
+        <td><%= link_to_if check, 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>
