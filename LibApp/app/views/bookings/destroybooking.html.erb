@@ -1,0 +1,27 @@
+<p>Welcome, <%= current_user.name %>!</p>
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+<table style="width:100%">
+  <caption>Reservation Details</caption>
+  <tr>
+    <th>User</th>
+    <th>Room No</th>
+    <th>Building</th>
+    <th>Size</th>
+    <th>Start Time</th>
+    <th>Booked Date</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><%= @booking.user %></td>
+    <td><%= @booking.room_no %></td>
+    <td><%= @booking.building %></td>
+    <td><%= @booking.size %></td>
+    <td><%= @booking.start_time %></td>
+    <td><%= @booking.booking_date %></td>
+    <td><%= link_to 'Cancel', @booking, method: :delete %></td>
+  </tr>
+</table>

@@ -20,7 +20,7 @@
         <td><%= room.building %></td>
         <td><%= room.status %></td>
         <td><%= link_to "Edit", {:action => "edit", :id => room.id} %> |
-          <%= link_to "Details", {:action => "detailsofroom", :id => room.id} %>|
+          <%= link_to "Details", {:action => "detailsofroom", :room_id => room.id} %>|
           <%= link_to "Delete", room, method: :delete, data: {confirm: "Are You sure?"} %></td>
       </tr>
   <% end %>

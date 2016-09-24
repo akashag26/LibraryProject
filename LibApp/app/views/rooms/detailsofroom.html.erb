@@ -31,23 +31,32 @@
       <tr>
         <th scope="row">10:00 - 12:00</th>
         <%[0,1,2,3,4,5,6].each do |d|%>
-        <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d), start_time: "10:00" )%>
-        <%if @booking != nil%>
-        <td><%=@booking.user%></td>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d), start_time: "10:00" )%>
+            <%if @booking != nil%>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin"||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-            <td><%= link_to "Available", {:controller => "bookings", :action => "new0", :id => @room.id, :date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new0", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
-            <%end%>
-
+        <%end%>
       </tr>
       <tr>
         <th scope="row">12:00 - 2:00</th>
         <%[0,1,2,3,4,5,6].each do |d|%>
             <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d),start_time: "12:00" )%>
             <%if @booking != nil%>
-                <td><%=@booking.user%></td>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin"||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-                <td><%= link_to "Available",{:controller => "bookings", :action => "new1", :id => @room.id,:date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new1", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
         <%end%>
       </tr>
@@ -56,9 +65,14 @@
         <%[0,1,2,3,4,5,6].each do |d|%>
             <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d),start_time: "2:00" )%>
             <%if @booking != nil%>
-                <td><%=@booking.user%></td>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin"||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-                <td><%= link_to "Available",{:controller => "bookings", :action => "new2", :id => @room.id,:date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new2", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
         <%end%>
       </tr>
@@ -67,9 +81,14 @@
         <%[0,1,2,3,4,5,6].each do |d|%>
             <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d),start_time: "4:00" )%>
             <%if @booking != nil%>
-                <td><%=@booking.user%></td>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin" ||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-                <td style="width:50px;"><%= link_to "Available",{:controller => "bookings", :action => "new3", :id => @room.id,:date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new3", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
         <%end%>
       </tr>
@@ -78,9 +97,14 @@
         <%[0,1,2,3,4,5,6].each do |d|%>
             <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d),start_time: "6:00" )%>
             <%if @booking != nil%>
-                <td><%=@booking.user%></td>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin"||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-                <td><%= link_to "Available",{:controller => "bookings", :action => "new4", :id => @room.id,:date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new4", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
         <%end%>
       </tr>
@@ -89,9 +113,14 @@
         <%[0,1,2,3,4,5,6].each do |d|%>
             <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d),start_time: "8:00" )%>
             <%if @booking != nil%>
-                <td><%=@booking.user%></td>
+                <% check = (current_user.kind == "admin" || current_user.kind == "super-admin"||current_user.email == @booking.email) %>
+                <%if check%>
+                    <td><%= link_to @booking.user, {:controller => "bookings", :action => "destroybooking", :id => @booking.id} %>
+                <%else%>
+                    <td><%="Booked"%></td>
+                <%end%>
             <%else%>
-                <td><%= link_to "Available",{:controller => "bookings", :action => "new5", :id => @room.id,:date => (Date.current()+d)} %></td>
+                <td><%= link_to "Available", {:controller => "bookings", :action => "new5", :id => @room.id, :date => (Date.current()+d)} %></td>
             <%end%>
         <%end%>
       </tr>

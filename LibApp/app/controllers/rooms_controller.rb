@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
   end
 
   def detailsofroom
-    @room=Room.find(params[:id])
+    @room=Room.find(params[:room_id])
     @bookings=Booking.find_by(room_no: @room.room_no)
 
   end

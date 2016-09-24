@@ -60,11 +60,11 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:success] = 'You have successfully booked a room!'
-      #render html: params[:room_id]
-      redirect_to rooms_detailsofroom_path(@room.id)
+      #render html: @booking.room_id
+      redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
     else
       flash[:error] = 'Unsuccessful Operation!'
-      redirect_to rooms_detailsofroom_path(:id => @room.id)
+      redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
     end
   end
 
@@ -82,11 +82,16 @@ class BookingsController < ApplicationController
     @bookings =Booking.all
   end
 
+  def destroybooking
+    @booking = Booking.find(params[:id])
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
+    roomid=@booking.room_id
     @booking.destroy
     #flash[:success] = "User deleted"
-    redirect_to roomreservation_path
+    redirect_to rooms_detailsofroom_path(:room_id => roomid)
   end
 
   private
@@ -100,7 +105,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_date,
-       :building, :size)
+       :building, :size, :room_id)
   end
 
 end

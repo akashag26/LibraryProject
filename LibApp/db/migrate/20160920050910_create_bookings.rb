@@ -10,6 +10,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.date :booking_date
       t.string :building
       t.string :size
+      t.integer :room_id
 
       t.timestamps
     end

@@ -27,6 +27,7 @@
 
         <%= f.hidden_field :booking_ID, :value => 5 %>
         <%= f.hidden_field :end_time, :value => "10:00" %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
 
         <%= f.submit "Create Reservation", class: "btn btn-primary" %>
     <% end %>

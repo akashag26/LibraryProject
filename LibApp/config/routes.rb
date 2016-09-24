@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/bookings/new4' , to: 'bookings#new4'
   get '/bookings/new5' , to: 'bookings#new5'
   get '/bookings/new6' , to: 'bookings#new6'
+  get 'bookings/destroybooking', to: 'bookings#destroybooking'
 
   get 'rooms/show_schedule', to: 'rooms#show_schedule'
   get 'rooms/edit', to: 'rooms#edit'
