@@ -1,0 +1,89 @@
+<% provide(:title, 'Room Detail') %>
+<h3>Room Detail</h3>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@room) do |f| %>
+        <%= render 'rooms/error_messages' %>
+
+        <%= f.label "Room no" %>
+        <%= f.text_field :room_no,   class: 'form-control' %>
+
+        <%= f.label :size %>
+        <%= f.text_field :size,  class: 'form-control' %>
+
+        <%= f.label :building %>
+        <%= f.text_field :building,  class: 'form-control' %>
+
+        <%= f.label :Status %>
+
+    <% end %>
+    <table style="width:100%">
+      <caption>Reservation Details</caption>
+      <tr>
+        <th></th>
+        <th><%=  Date.current() %></th>
+        <th><%=  Date.current()+1 %></th>
+        <th><%=  Date.current()+2 %></th>
+        <th><%=  Date.current()+3 %></th>
+        <th><%=  Date.current()+4%></th>
+        <th><%=  Date.current()+5 %></th>
+        <th><%=  Date.current()+6 %></th>
+      </tr>
+      <tr>
+        <th scope="row">10:00 - 12:00</th>
+        <td>Closed</td>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">12:00 - 2:00</th>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">2:00 - 4:00</th>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">4:00 - 6:00</th>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">6:00 - 8:00</th>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+      <tr>
+        <th scope="row">8:00 - 10:00</th>
+        <td>Open</td>
+        <td>Open</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+        <td>Closed</td>
+      </tr>
+    </table>
+  </div>
+</div>
