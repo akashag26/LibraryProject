@@ -12,6 +12,17 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def reserveroom
+    conditions = {:room_no => params[:room_no], :building => params[:building], :size => params[:size], :status => params[:status]}
+    conditions = conditions.delete_if { |key, value| value.blank? }
+    Rails.logger.debug "Hash is here #{conditions.inspect}"
+    if params[:building]
+      @rooms = Room.where(conditions).order('rooms.room_no').page(params[:page]).per_page(5)
+    else
+      @rooms = Room.all.order('rooms.room_no').page(params[:page]).per_page(5)
+    end
+  end
+
   def update
     @room = Room.find(params[:id])
     if @room.update_attributes(room_params)
