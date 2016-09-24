@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'showusers/index'
   get 'showusers/show'
+  #check this one need to change position
+  get 'roomreservation', to: 'bookings#roomreservation'
   get 'manageuser/show'
   get 'details/create'
   get 'sessions/new'
@@ -33,6 +35,8 @@ Rails.application.routes.draw do
   resources :users
   resources :rooms
   resources :details
+  resources :bookings
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
