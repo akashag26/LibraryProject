@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'rooms/update'
   get 'rooms/show_history'
   get 'sessions/new'
+  get 'rooms/detailsofroom', to: 'rooms#detailsofroom'
+  get 'rooms/viewdetails', to: 'rooms#viewdetails'
 
   get 'homes/roomreservation'
 

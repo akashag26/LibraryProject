@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
     @rooms = Room.all
   end
 
@@ -16,6 +17,15 @@ class RoomsController < ApplicationController
   def show_history
   end
 
+  def detailsofroom
+    @room=Room.find(1)
+    @booking=Booking.find_by(room_no: @room.room_no)
+
+  end
+
+  def view_details
+    render html: 'Here'
+  end
   # POST /users
   # POST /users.json
   def create
