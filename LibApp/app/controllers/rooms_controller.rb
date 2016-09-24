@@ -34,9 +34,7 @@ class RoomsController < ApplicationController
 
   end
 
-  def view_details
-    render html: 'Here'
-  end
+
   # POST /users
   # POST /users.json
   def create

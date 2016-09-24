@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@booking) do |f| %>
+        <%= render html: 'Error' %>
+
+        <%= f.label :room_no,"Room No" %>
+        <%= f.text_field :room_no, :value => @room.room_no,class: 'form-control',:readonly => true %>
+
+        <%= f.label :user,"User" %>
+        <%= f.text_field :user, :value => current_user.name, class: 'form-control',:readonly => true %>
+
+
+        <%= f.label :email %>
+        <%= f.email_field :email, :value => current_user.email, class: 'form-control',:readonly => true %>
+
+        <%= f.label :start_time,"Start-Time" %>
+        <%= f.text_field :start_time, :value =>"10:00", class: 'form-control',:readonly => true %>
+
+        <%= f.label :building,"Building" %>
+        <%= f.text_field :building, :value => @room.building, class: 'form-control',:readonly => true %>
+
+        <%= f.label :size, "Size" %>
+        <%= f.text_field :size, :value => @room.size, class: 'form-control',:readonly => true %>
+
+        <%= f.label :booking_date, "Date" %>
+        <%= f.text_field :booking_date,:value => @date, class: 'form-control',:readonly => true %>
+
+        <%= f.hidden_field :booking_ID, :value => 5 %>
+        <%= f.hidden_field :end_time, :value => "12:00" %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <br>
+
+        <%= f.submit "Create Reservation", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

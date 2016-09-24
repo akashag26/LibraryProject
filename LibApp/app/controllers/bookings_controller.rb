@@ -12,10 +12,43 @@ class BookingsController < ApplicationController
   end
 
   # GET /users/new
-  def new
-   # @room=Room.find(params[:id])
+  def new0
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
     @booking = Booking.new
   end
+  def new1
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
+    @booking = Booking.new
+  end
+  def new2
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
+    @booking = Booking.new
+  end
+  def new3
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
+    @booking = Booking.new
+  end
+  def new4
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
+    @booking = Booking.new
+  end
+  def new5
+    @room=Room.find(params[:id])
+    @date=params[:date]
+    @user=@current_user
+    @booking = Booking.new
+  end
+
 
   # GET /users/1/edit
   def edit
@@ -23,12 +56,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(article_params)
+    @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to @booking
+      flash[:success] = 'You have successfully booked a room!'
+      #render html: params[:room_id]
+      redirect_to rooms_detailsofroom_path(@room.id)
     else
-      render 'new'
+      flash[:error] = 'Unsuccessful Operation!'
+      redirect_to rooms_detailsofroom_path(:id => @room.id)
     end
   end
 
@@ -63,7 +99,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_time,
+    params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_date,
        :building, :size)
   end
 

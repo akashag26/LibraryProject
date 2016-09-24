@@ -4,8 +4,8 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.string :booking_ID
       t.string :user
       t.string :email
-      t.time :start_time
-      t.time :end_time
+      t.string :start_time
+      t.string :end_time
       t.string :room_no
       t.date :booking_date
       t.string :building

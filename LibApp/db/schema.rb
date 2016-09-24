@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20160920050910) do
     t.string   "booking_ID"
     t.string   "user"
     t.string   "email"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string   "start_time"
+    t.string   "end_time"
     t.string   "room_no"
-    t.time     "booking_time"
+    t.date     "booking_date"
     t.string   "building"
     t.string   "size"
     t.datetime "created_at",   null: false
