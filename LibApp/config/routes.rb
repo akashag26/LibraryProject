@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'rooms/viewdetails', to: 'rooms#viewdetails'
   get 'rooms/detailsofroom'
   get 'homes/roomreservation'
+  get '/bookings/new' , to: 'bookings#new'
 
   get 'rooms/show_schedule', to: 'rooms#show_schedule'
   get 'rooms/edit', to: 'rooms#edit'

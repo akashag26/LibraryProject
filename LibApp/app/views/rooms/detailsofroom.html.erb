@@ -1,6 +1,6 @@
 <% provide(:title, 'Room Detail') %>
 <h3>Room Detail</h3>
-<p>Welcome <%=@booking.start_time%> </p>
+<p><%=@bookings.class%></p>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -33,57 +33,70 @@
       </tr>
       <tr>
         <th scope="row">10:00 - 12:00</th>
-        <td>Closed</td>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+        <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+        <%if @booking != nil%>
+        <td><%=@booking.user%></td>
+            <%else%>
+            <td><%= link_to "Available", bookings_new_path(@room.id) %></td>
+            <%end%>
+            <%end%>
+
       </tr>
       <tr>
         <th scope="row">12:00 - 2:00</th>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+            <%if @booking != nil%>
+                <td><%=@booking.user%></td>
+            <%else%>
+                <td><%= link_to "Available",bookings_new_path %></td>
+            <%end%>
+        <%end%>
       </tr>
       <tr>
         <th scope="row">2:00 - 4:00</th>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+            <%if @booking != nil%>
+                <td><%=@booking.user%></td>
+            <%else%>
+                <td><%= link_to "Available",bookings_new_path %></td>
+            <%end%>
+        <%end%>
       </tr>
       <tr>
         <th scope="row">4:00 - 6:00</th>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+            <%if @booking != nil%>
+                <td><%=@booking.user%></td>
+            <%else%>
+                <td><%= link_to "Available",bookings_new_path %></td>
+            <%end%>
+        <%end%>
       </tr>
       <tr>
         <th scope="row">6:00 - 8:00</th>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+            <%if @booking != nil%>
+                <td><%=@booking.user%></td>
+            <%else%>
+                <td><%= link_to "Available",bookings_new_path %></td>
+            <%end%>
+        <%end%>
       </tr>
       <tr>
         <th scope="row">8:00 - 10:00</th>
-        <td>Open</td>
-        <td>Open</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
-        <td>Closed</td>
+        <%[0,1,2,3,4,5,6].each do |d|%>
+            <%@booking=Booking.find_by(room_no: @room.room_no ,booking_date: (Date.current()+d) )%>
+            <%if @booking != nil%>
+                <td><%=@booking.user%></td>
+            <%else%>
+                <td><%= link_to "Available",bookings_new_path %></td>
+            <%end%>
+        <%end%>
       </tr>
     </table>
   </div>

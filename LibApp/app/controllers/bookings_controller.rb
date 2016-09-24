@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
   # GET /users/new
   def new
+   # @room=Room.find(params[:id])
     @booking = Booking.new
   end
 
@@ -65,4 +66,5 @@ class BookingsController < ApplicationController
     params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_time,
        :building, :size)
   end
+
 end
