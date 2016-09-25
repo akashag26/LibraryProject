@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
   end
 
   def reserveroom
-    conditions = {:room_no => params[:room_no], :building => params[:building], :size => params[:size], :status => params[:status]}
+    conditions = {:room_no => params[:room_no], :building => params[:building], :size => params[:size]}
     conditions = conditions.delete_if { |key, value| value.blank? }
     Rails.logger.debug "Hash is here #{conditions.inspect}"
     if params[:building]
@@ -54,7 +54,6 @@ class RoomsController < ApplicationController
       flash[:success] = 'You have successfully added a room!'
       redirect_to @room
     else
-      flash[:error] = @room.errors
       render 'add'
     end
   end

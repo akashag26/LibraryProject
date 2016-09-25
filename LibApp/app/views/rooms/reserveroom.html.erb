@@ -12,8 +12,6 @@
           <%= select_tag :size, options_for_select([["", ""], ["Small - 4 chairs", "small"], ["Medium - 6 chairs", "medium"], ["Large - 12 chairs", "large"]], :selected => params[:size]) %>
           <%= label_tag :building, "Building" %>
           <%= select_tag :building, options_for_select([["", ""], ["D.H Hill", "hill"], ["James B. Hunt", "hunt"]], :selected => params[:building]) %>
-          <%= label_tag :status, "Status" %>
-          <%= select_tag :status, options_for_select(["", "Available", "Booked"], :selected => params[:status]) %>
           <br>
           <%= submit_tag "Search", :name => nil %>
         </p>
@@ -26,7 +24,6 @@
         <th>Room No</th>
         <th>Size</th>
         <th>Building</th>
-        <th>Status</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -37,12 +34,7 @@
             <td><%= room.room_no %></td>
             <td><%= room.size %></td>
             <td><%= room.building %></td>
-            <td><%= room.status %></td>
-            <% if room.status == "Available" %>
-                <td><%= link_to "Details", {:action => "detailsofroom", :room_id => room.id} %></td>
-            <% else %>
-                <td><%= link_to "Release", {:action => "edit", :id => room.id} %></td>
-            <% end %>
+            <td><%= link_to "Details", {:action => "detailsofroom", :room_id => room.id} %></td>
           </tr>
       <% end %>
       </tbody>

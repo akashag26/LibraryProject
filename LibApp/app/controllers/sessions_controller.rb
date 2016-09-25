@@ -2,6 +2,14 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def homepage
+    if current_user
+      redirect_to home_path(@current_user)
+    else
+      render 'new'
+    end
+  end
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])

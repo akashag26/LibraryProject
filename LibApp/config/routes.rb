@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   get 'manageroom', to: 'homes#manageroom'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  root 'sessions#new'
+  root 'sessions#homepage'
   resources :users
   resources :rooms
   resources :details
