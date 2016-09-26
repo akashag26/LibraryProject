@@ -9,6 +9,7 @@
     <caption>Reservation Details</caption>
   <tr>
     <th>Room No</th>
+    <th>Booking Date</th>
     <th>Start Time</th>
     <th>End Time</th>
     <th>Building</th>
@@ -18,6 +19,7 @@
   <% @bookings.each do |b| %>
       <tr>
         <td><%= b.room_no %></td>
+        <td><%= b.booking_date %></td>
         <td><%= b.start_time %></td>
         <td><%= b.end_time %></td>
         <td><%= b.building %></td>

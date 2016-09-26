@@ -2,6 +2,8 @@ class BookingsController < ApplicationController
   #before_action :set_booking, only: [:index, :edit, :destroy]
   def index
     @bookings = Booking.all
+    @team  = User.select(:email)
+
     #render html: 'Inside index'
   end
 
@@ -9,6 +11,8 @@ class BookingsController < ApplicationController
   # GET /users/1.json
   def show
     @booking = Booking.find(params[:id])
+    @team  = User.select(:email)
+
   end
 
   # GET /users/new
@@ -55,13 +59,31 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+
   def create
     @booking = Booking.new(booking_params)
+    arr = @booking.members.split(',')
+    mymessages = []
+    mymessages.push("Email sent to " +  "#{current_user.email}")
+    mystring = ""
+
+    arr.each { |x| if !User.find_by(email: x.strip.downcase)
+                     mystring= "Email Not sent to " +  "#{x.strip.downcase}" + ": Invalid Email "
+                     mymessages.push(mystring)
+                   else
+                     if x.strip.downcase != @current_user.email
+                     mystring= "Email sent to " +  "#{x.strip.downcase}"
+                     mymessages.push(mystring)
+                     end
+                   end}
 
     if @booking.save
-      flash[:success] = 'You have successfully booked a room!'
+      mymessages.push('You have successfully booked a room!')
+      flash[:success] = mymessages.join("<br/>".html_safe)
       #render html: @booking.room_id
+
       redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
+
     else
       flash[:error] = 'Unsuccessful Operation!'
       redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
@@ -105,7 +127,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_date,
-       :building, :size, :room_id)
+       :building, :size, :room_id, :members)
   end
 
 end

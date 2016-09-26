@@ -3,6 +3,6 @@ class ChangeRoomnoColumnTypeInRooms < ActiveRecord::Migration[5.0]
     change_column :rooms, :room_no, :integer
   end
   def down
-    change_column :rooms, :my_column, :string
+    change_column :rooms, :room_no, :string
   end
 end
