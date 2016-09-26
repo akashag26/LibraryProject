@@ -72,7 +72,7 @@ class BookingsController < ApplicationController
       @booking.user=@tempuser.name
 
       mymessages = []
-      if @current_user.kind == 'user'
+      if current_user.kind == 'user'
         arr = @booking.members.split(',')
         mymessages.push("Email sent to " + "#{current_user.email}")
         mystring = ""
