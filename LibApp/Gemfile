@@ -14,7 +14,7 @@ group :production do
   gem 'pg'
 end
 
-#pagination
+#gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
 gem 'bcrypt', '3.1.11'
 #pagination
 gem 'will_paginate', '~> 3.1.1'
@@ -28,7 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'coffee-script-source', '1.8.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -62,3 +63,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
