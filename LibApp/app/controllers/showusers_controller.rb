@@ -12,5 +12,8 @@ class ShowusersController < ApplicationController
       @detail = Detail.where(:email => current_user.email)
     end
 
+    def show_history
+      @details = Detail.select("details.*").joins('left outer join users on users.email = details.email').where(:users => {:kind => "user"})
+    end
 
 end

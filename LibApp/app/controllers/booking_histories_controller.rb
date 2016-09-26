@@ -11,11 +11,15 @@ class BookingHistoriesController < ApplicationController
   end
 
   def showuserhistory
-    @booking_histories = BookingHistory.all.where(email: current_user.email)
+    if params[:email]
+      @booking_histories = BookingHistory.all.where(email: params[:email])
+    else
+      @booking_histories = BookingHistory.all.where(email: current_user.email)
+    end
   end
 
   def booking_history_params
-    params.require(:booking_history).permit( :room_no, :user, :email, :booking_date, :startime, :building, :size, :room_id)
+    params.require(:booking_history).permit(:room_no, :user, :email, :booking_date, :startime, :building, :size, :room_id)
   end
 
 

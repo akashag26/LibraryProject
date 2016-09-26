@@ -67,7 +67,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @tempuser=User.find_by(email: @booking.email)
+    @tempuser = User.find_by(email: @booking.email)
     if @tempuser != nil
       @booking.user=@tempuser.name
 
@@ -87,7 +87,6 @@ class BookingsController < ApplicationController
               mymessages.push(mystring)
             end
           end }
-
       end
 
 

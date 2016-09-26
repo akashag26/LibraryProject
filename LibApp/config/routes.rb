@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get '/admindetails', to: 'details#myshow'
   get '/showadmins', to: 'showadmins#index'
   get '/showusers', to: 'showusers#index'
+  get '/showusers/showhistory', to:'showusers#show_history'
   post '/createadmin/myaction', to: 'createadmin#myaction'
   get '/createadmin', to: 'createadmin#show'
   get '/home', to: 'homes#show'

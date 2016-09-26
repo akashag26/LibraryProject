@@ -5,7 +5,7 @@
     border: 1px solid black;
   }
 </style>
-<%if @booking_histories !=nil%>
+<% if @booking_histories !=nil %>
     <table style="width:100%">
       <caption>Reservation History</caption>
       <tr>
@@ -16,20 +16,18 @@
         <th>Date</th>
       </tr>
       <% @booking_histories.each do |b| %>
-          <%if b.isCancelled != "true" && b.booking_date<=Date.current() %>
-              <%temp= Time.now%>
-              <%if ( b.booking_date == Date.current() && b.endtime <= temp.hour.to_s) %>
-          <tr>
-            <td><%= b.user %></td>
-            <td><%= b.startime %></td>
-            <td><%= b.building %></td>
-            <td><%= b.size %></td>
-            <td><%= b.booking_date %></td>
-          </tr>
-                  <%end%>
-              <%end%>
+          <% if b.isCancelled != "true" && b.booking_date<=Date.current() %>
+              <% temp= Time.now %>
+              <tr>
+                <td><%= b.user %></td>
+                <td><%= b.startime %></td>
+                <td><%= b.building %></td>
+                <td><%= b.size %></td>
+                <td><%= b.booking_date %></td>
+              </tr>
+          <% end %>
       <% end %>
     </table>
-<%else%>
+<% else %>
     <p>No Reservation Made.</p>
 <% end %>
