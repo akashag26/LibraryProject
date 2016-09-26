@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: pg
   pool: 5
   timeout: 5000
 
@@ -17,7 +17,7 @@ development:
    host: localhost
 
 test:
-   adapter: mysql2
+   adapter: pg
    database: library_test
    username: root
    password: root
