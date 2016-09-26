@@ -3,22 +3,9 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+SysAdmin Details: Username: sysadmin@gmail.com Password: sysadmin
+  
+We have implemented all of the basic functionalities along with the first part of bonus assignment so far.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To create a New Library Member: Start the application: Go to Sign up now: Create a new user
+To create a new admin: Login with an admin or preconfigured admin. Go to Manage admin -> Create New Admin.
