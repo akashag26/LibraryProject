@@ -33,6 +33,13 @@ class RoomsController < ApplicationController
   end
 
   def show_schedule
+
+   if params[:schedule_date]
+    @date_selected  =  params[:schedule_date]
+   else
+     @date_selected = Date.current
+     end
+
     @rooms = Room.select('rooms.room_no').order('rooms.room_no')
   end
 

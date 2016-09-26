@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@booking) do |f| %>
-        <%= render html: 'Error' %>
 
         <%= f.label :room_no,"Room No" %>
         <%= f.text_field :room_no, :value => @room.room_no,class: 'form-control',:readonly => true %>
@@ -11,7 +10,16 @@
 
 
         <%= f.label :email %>
-        <%= f.email_field :email, :value => current_user.email, class: 'form-control',:readonly => true %>
+        <% if current_user.kind == "admin" || current_user.kind =="super-admin"%>
+            <%= f.email_field :email, class: 'form-control' %>
+        <%else%>
+            <%= f.email_field :email, :value => current_user.email, class: 'form-control',:readonly => true %>
+        <%end%>
+
+        <% if current_user.kind == 'user'  %>
+            <%= f.label :members,"Add Members: Comma Seperated List" %>
+            <%= f.text_field :members ,class: 'form-control'%>
+        <% end %>
 
         <%= f.label :start_time,"Start-Time" %>
         <%= f.text_field :start_time, :value =>"6:00", class: 'form-control',:readonly => true %>
