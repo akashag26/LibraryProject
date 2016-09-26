@@ -21,9 +21,12 @@ Rails.application.routes.draw do
   get 'bookings/destroybooking', to: 'bookings#destroybooking'
   get  'roomreservation',  to: 'bookings#roomreservation'
 
+  get 'showuserhistory', to:'booking_histories#showuserhistory'
+  get 'showroomhistory', to:'booking_histories#showroomhistory'
+
   get 'rooms/show_schedule', to: 'rooms#show_schedule'
   get 'rooms/edit', to: 'rooms#edit'
-
+  get 'bookinghistroycreate', to: 'booking_histories#addhistory'
   get 'sessions/new'
   get 'showusers/index'
   get 'showusers/show'

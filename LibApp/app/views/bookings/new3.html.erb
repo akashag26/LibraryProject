@@ -11,7 +11,11 @@
 
 
         <%= f.label :email %>
-        <%= f.email_field :email, :value => current_user.email, class: 'form-control',:readonly => true %>
+        <% if current_user.kind == "admin" || current_user.kind =="super-admin"%>
+            <%= f.email_field :email, class: 'form-control' %>
+        <%else%>
+            <%= f.email_field :email, :value => current_user.email, class: 'form-control',:readonly => true %>
+        <%end%>
 
         <%= f.label :start_time,"Start-Time" %>
         <%= f.text_field :start_time, :value =>"4:00", class: 'form-control',:readonly => true %>

@@ -57,15 +57,36 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    @tempuser=User.find_by(email: @booking.email)
+    if @tempuser != nil
+      @booking.user=@tempuser.name
     if @booking.save
       flash[:success] = 'You have successfully booked a room!'
       #render html: @booking.room_id
-      redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
+      temp = BookingHistory.new(room_no: @booking.room_no ,
+      user: @booking.user,
+      email: @booking.email,
+      booking_date: @booking.booking_date,
+      startime: @booking.start_time,
+                                endtime: @booking.end_time,
+      building: @booking.building,
+      size: @booking.size,
+       isCancelled: "false",
+      room_id: @booking.room_id)
+      temp.save!
+      if current_user.kind=="user"
+        redirect_to home_path
+      else
+        redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
+      end
     else
       flash[:error] = 'Unsuccessful Operation!'
       redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
     end
+    else
+      flash[:error] = 'Unsuccessful Operation!'
+      redirect_to rooms_detailsofroom_path(:room_id => @booking.room_id)
+      end
   end
 
   def update
@@ -89,9 +110,16 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     roomid=@booking.room_id
+    @booking_history=BookingHistory.find_by(room_no: @booking.room_no, email: @booking.email, booking_date: @booking.booking_date,
+     startime: @booking.start_time);
+    @booking_history.update_attributes(isCancelled: "true")
     @booking.destroy
     #flash[:success] = "User deleted"
+    if current_user.kind=="user"
+      redirect_to home_path
+    else
     redirect_to rooms_detailsofroom_path(:room_id => roomid)
+      end
   end
 
   private
@@ -106,6 +134,10 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit( :booking_ID, :user, :email, :start_time, :end_time, :room_no, :booking_date,
        :building, :size, :room_id)
+  end
+
+  def booking_history_params
+    params.require(:booking_history).permit( :room_no, :user, :email, :booking_date, :startime, :building, :size, :room_id)
   end
 
 end

@@ -13,17 +13,21 @@
     <th>End Time</th>
     <th>Building</th>
     <th>Size</th>
+    <th>Date</th>
     <th>Action</th>
   </tr>
   <% @bookings.each do |b| %>
+
       <tr>
         <td><%= b.room_no %></td>
         <td><%= b.start_time %></td>
         <td><%= b.end_time %></td>
         <td><%= b.building %></td>
         <td><%= b.size %></td>
+        <td><%= b.booking_date %></td>
         <td><%= link_to 'Cancel', b, method: :delete %></td>
       </tr>
+
   <% end %>
 </table>
     <%else%>

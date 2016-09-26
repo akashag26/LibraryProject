@@ -7,4 +7,7 @@ class HomesController < ApplicationController
     @user = @current_user
   end
 
+  def bookinghistory
+
+  end
 end
