@@ -25,6 +25,7 @@ Sigining in will take the admin to the webpage where he can do the following:
 2. Manage Admins: When clicked this it display two options as:
 
 	a. Create New Admin: New admin can be cretaed from here.
+	
 	b. View/Delete Amins; Admins can be viewed and delete. An admin can delete other admin except himself and sysadmin. Check destroy like disabled in these case.
 
 
@@ -32,7 +33,8 @@ Sigining in will take the admin to the webpage where he can do the following:
 
 	a. Add a room:  Room can be added via it. A room will have the following attributes: Room Number (unique for each room), building, size, status
 	
-	b. View/Edit rooms: View the list of all the rooms. View the schedule for the rooms.Displays the details of all the rooms. Provides following action for each room:
+	b. View/Edit rooms: View the list of all the rooms. View the schedule for the rooms.Displays the details of all the rooms. 
+						Provides following action for each room:
 		- Edit: Attributes of a room can be edit except room no.
 		- Details: Displays one week schedule for that particular room. 2 hrs slots are fixed. On the displayed schedule, if a room is available, you can book it by 
 		  clicking  'Available', which redirects to booking bage. If a room is booked , the schedule shows the name of the user who has booked it and admin can 
